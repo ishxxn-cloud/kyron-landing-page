@@ -12,11 +12,12 @@ const Index = () => {
     const params = new URLSearchParams(location.search);
     const scrollTo = params.get("scrollTo");
     if (scrollTo) {
-      // Small delay to ensure DOM is ready
       setTimeout(() => {
         const el = document.getElementById(scrollTo);
         el?.scrollIntoView({ behavior: "smooth" });
       }, 100);
+      // Clear the query param so it doesn't re-trigger
+      window.history.replaceState({}, "", "/");
     }
   }, [location.search]);
 
