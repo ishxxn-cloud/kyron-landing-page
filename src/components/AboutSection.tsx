@@ -3,8 +3,7 @@ import { useScroll } from "framer-motion";
 import WordsPullUpMultiStyle from "./WordsPullUpMultiStyle";
 import AnimatedLetter from "./AnimatedLetter";
 
-const aboutText =
-  "Over the last seven years, I have worked with Parallax, a Berlin-based production house that crafts cinema, series, and Noir Studio in Paris. Together, we have created work that has earned international acclaim at several major festivals.";
+const aboutText = "";
 
 const AboutSection = () => {
   const textRef = useRef<HTMLParagraphElement>(null);
@@ -24,9 +23,9 @@ const AboutSection = () => {
           <WordsPullUpMultiStyle
             containerClassName="justify-center"
             segments={[
-              { text: "I am Marcus Chen,", className: "font-normal" },
-              { text: "a self-taught director.", className: "italic font-serif" },
-              { text: "I have skills in color grading, visual effects, and narrative design.", className: "font-normal" },
+              { text: "I am Kyro Sen,", className: "font-normal" },
+              { text: "a self-taught designer.", className: "italic font-serif" },
+              { text: "I specialise in web design, user experience & front end development, shaping digital spaces that are both functional & visually compelling. With a focus on clarity and detail, I craft websites that connect, engage, and elevate brands.", className: "font-normal" },
             ]}
           />
         </h2>

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import WordsPullUp from "./WordsPullUp";
 
-const navItems = ["Our story", "Collective", "Workshops", "Programs"];
+const navItems = ["Our story", "Projects", "Subsciption", "Hire Me"];
 
 const HeroSection = () => {
   return (
@@ -54,7 +54,7 @@ const HeroSection = () => {
                 className="text-[26vw] sm:text-[24vw] md:text-[22vw] lg:text-[20vw] xl:text-[19vw] 2xl:text-[20vw] font-medium leading-[0.85] tracking-[-0.07em]"
                 style={{ color: "#E1E0CC" }}
               >
-                <WordsPullUp text="Prisma" showAsterisk />
+                <WordsPullUp text="Kyron" showAsterisk />
               </h1>
             </div>
 
@@ -67,7 +67,7 @@ const HeroSection = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
-                Prisma is a worldwide network of visual artists, filmmakers and storytellers bound not by place, status or labels but by passion and hunger to unlock potential through our unique perspectives.
+                Kyron is a design agency for companies and individuals—driven by clarity, creativity, and purpose. Not bound by trends or limits, we turn ideas into meaningful digital experiences. At Kyron, we design to connect, elevate, and unlock potential.
               </motion.p>
 
               <motion.a
@@ -77,7 +77,7 @@ const HeroSection = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.7, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
-                <span className="text-primary-foreground font-medium text-sm sm:text-base">Join the lab</span>
+                <span className="text-primary-foreground font-medium text-sm sm:text-base">Hire Me</span>
                 <span className="bg-black rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-transform group-hover:scale-110">
                   <ArrowRight className="w-4 h-4" style={{ color: "#E1E0CC" }} />
                 </span>
