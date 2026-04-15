@@ -15,11 +15,11 @@ const AboutSection = () => {
   const chars = aboutText.split("");
 
   return (
-    <section className="bg-black py-20 md:py-32 px-4 md:px-6">
-      <div className="max-w-6xl mx-auto bg-[#101010] rounded-2xl md:rounded-3xl p-8 md:p-16 text-center">
-        <span className="text-primary text-[10px] sm:text-xs uppercase tracking-widest">Visual arts</span>
+    <section className="bg-black py-24 md:py-40 px-4 md:px-8">
+      <div className="w-full max-w-7xl mx-auto bg-[#101010] rounded-2xl md:rounded-3xl p-10 md:p-20 lg:p-24 text-center">
+        <span className="text-primary text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-8 inline-block">Visual arts</span>
 
-        <h2 className="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl max-w-3xl mx-auto leading-[0.95] sm:leading-[0.9]" style={{ color: "#E1E0CC" }}>
+        <h2 className="mt-8 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl w-full max-w-4xl mx-auto leading-[1.05] sm:leading-[1]" style={{ color: "#E1E0CC" }}>
           <WordsPullUpMultiStyle
             containerClassName="justify-center"
             segments={[
@@ -32,7 +32,7 @@ const AboutSection = () => {
 
         <p
           ref={textRef}
-          className="mt-10 md:mt-16 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed"
+          className="mt-14 md:mt-20 text-xs sm:text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed"
           style={{ color: "#DEDBC8" }}
         >
           {chars.map((char, i) => (

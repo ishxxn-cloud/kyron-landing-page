@@ -25,7 +25,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none" />
 
         {/* Navbar */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10">
+        <div className="fixed top-0 left-1/2 -translate-x-1/2 z-50">
           <nav className="bg-black rounded-b-2xl md:rounded-b-3xl px-4 py-2 md:px-8">
             <ul className="flex items-center gap-3 sm:gap-6 md:gap-12 lg:gap-14">
               {navItems.map((item) => (
@@ -72,12 +72,12 @@ const HeroSection = () => {
 
               <motion.a
                 href="#"
-                className="group inline-flex items-center gap-1 hover:gap-3 bg-primary rounded-full pl-5 pr-1 py-1 transition-all w-fit"
+                className="group inline-flex items-center gap-1 hover:gap-3 bg-primary rounded-full pl-5 pr-2 py-1 transition-all w-fit"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.7, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
-                <span className="text-primary-foreground font-medium text-sm sm:text-base">Hire Me</span>
+                <span className="text-primary-foreground font-medium text-sm sm:text-base pr-1">Hire Me</span>
                 <span className="bg-black rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-transform group-hover:scale-110">
                   <ArrowRight className="w-4 h-4" style={{ color: "#E1E0CC" }} />
                 </span>
