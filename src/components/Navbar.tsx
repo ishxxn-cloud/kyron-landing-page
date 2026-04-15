@@ -4,6 +4,33 @@ interface NavbarProps {
   showHomeLogo?: boolean;
 }
 
+function easeInOutCubic(t: number) {
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+
+function scrollElementToViewportCenter(el: HTMLElement, durationMs = 1100) {
+  if (typeof window === "undefined") return;
+  const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  if (prefersReduced) {
+    el.scrollIntoView({ behavior: "auto", block: "center" });
+    return;
+  }
+
+  const startY = window.scrollY;
+  const rect = el.getBoundingClientRect();
+  const targetY = startY + rect.top - (window.innerHeight - rect.height) / 2;
+  const delta = targetY - startY;
+
+  const start = performance.now();
+  const tick = (now: number) => {
+    const t = Math.min(1, (now - start) / durationMs);
+    window.scrollTo(0, startY + delta * easeInOutCubic(t));
+    if (t < 1) requestAnimationFrame(tick);
+  };
+
+  requestAnimationFrame(tick);
+}
+
 const navItems = [
   { label: "About Me", path: "/#about" },
   { label: "Projects", path: "/projects" },
@@ -14,13 +41,14 @@ const navItems = [
 const Navbar = ({ showHomeLogo = false }: NavbarProps) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const linkClassName = "text-[11px] sm:text-sm md:text-base whitespace-nowrap transition-colors";
 
   const handleNavClick = (e: React.MouseEvent, item: { label: string; path: string }) => {
     e.preventDefault();
     if (item.path === "/#about") {
       if (location.pathname === "/") {
         const el = document.getElementById("about");
-        el?.scrollIntoView({ behavior: "smooth" });
+        if (el) scrollElementToViewportCenter(el, 1200);
       } else {
         navigate("/?scrollTo=about");
       }
@@ -45,7 +73,7 @@ const Navbar = ({ showHomeLogo = false }: NavbarProps) => {
               <a
                 href="/"
                 onClick={handleLogoClick}
-                className="text-base md:text-lg font-medium tracking-tight transition-opacity hover:opacity-80"
+                className={`${linkClassName} font-medium tracking-tight transition-opacity hover:opacity-80`}
                 style={{ color: "#E1E0CC" }}
               >
                 Kyron
@@ -57,7 +85,7 @@ const Navbar = ({ showHomeLogo = false }: NavbarProps) => {
               <a
                 href={item.path}
                 onClick={(e) => handleNavClick(e, item)}
-                className="text-[10px] sm:text-xs md:text-sm whitespace-nowrap transition-colors"
+                className={linkClassName}
                 style={{ color: "rgba(225, 224, 204, 0.8)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#E1E0CC")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(225, 224, 204, 0.8)")}

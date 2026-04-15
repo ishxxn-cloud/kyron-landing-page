@@ -7,6 +7,8 @@ interface WordsPullUpProps {
   showAsterisk?: boolean;
   stagger?: number;
   duration?: number;
+  initialY?: number;
+  initialBlur?: number;
 }
 
 const WordsPullUp = ({
@@ -15,6 +17,8 @@ const WordsPullUp = ({
   showAsterisk = false,
   stagger = 0.08,
   duration = 0.8,
+  initialY = 20,
+  initialBlur = 0,
 }: WordsPullUpProps) => {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
@@ -27,8 +31,8 @@ const WordsPullUp = ({
         <motion.span
           key={i}
           className="inline-block mr-[0.25em] relative"
-          initial={{ y: 20, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : {}}
+          initial={{ y: initialY, opacity: 0, filter: initialBlur ? `blur(${initialBlur}px)` : "blur(0px)" }}
+          animate={isInView ? { y: 0, opacity: 1, filter: "blur(0px)" } : {}}
           transition={{
             delay: i * stagger,
             duration,

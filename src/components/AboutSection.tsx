@@ -16,12 +16,15 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="bg-black py-24 md:py-40 px-4 md:px-8">
-      <div className="w-full max-w-7xl mx-auto bg-[#101010] rounded-2xl md:rounded-3xl p-10 md:p-20 lg:p-24 text-center">
+      <div className="w-full max-w-7xl mx-auto bg-[#101010] rounded-2xl md:rounded-3xl p-8 md:p-14 lg:p-16 text-center">
         <span className="text-primary text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-8 inline-block">Visual arts</span>
 
-        <h2 className="mt-8 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl w-full max-w-4xl mx-auto leading-[1.05] sm:leading-[1]" style={{ color: "#E1E0CC" }}>
+        <h2
+          className="mt-8 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl w-full max-w-6xl mx-auto leading-[1.06] sm:leading-[1.02]"
+          style={{ color: "#E1E0CC" }}
+        >
           <WordsPullUpMultiStyle
-            containerClassName="justify-center"
+            containerClassName="justify-center gap-y-4"
             segments={[
               { text: "I am Kyro Sen,", className: "font-normal" },
               { text: "a self-taught designer.", className: "italic font-serif" },

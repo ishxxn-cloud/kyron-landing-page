@@ -35,14 +35,14 @@ const HeroSection = () => {
                 className="text-[26vw] sm:text-[24vw] md:text-[22vw] lg:text-[20vw] xl:text-[19vw] 2xl:text-[20vw] font-medium leading-[0.85] tracking-[-0.07em]"
                 style={{ color: "#E1E0CC" }}
               >
-                <WordsPullUp text="Kyron" showAsterisk stagger={0.11} duration={1.1} />
+                <WordsPullUp text="Kyron" showAsterisk stagger={0.14} duration={1.35} initialY={48} initialBlur={8} />
               </h1>
             </div>
 
             {/* Right column */}
             <div className="col-span-12 lg:col-span-4 flex flex-col gap-4 pb-2">
               <motion.p
-                className="text-primary/70 text-xs sm:text-sm md:text-base"
+                className="text-primary/70 text-sm sm:text-base md:text-lg"
                 style={{ lineHeight: 1.2 }}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
