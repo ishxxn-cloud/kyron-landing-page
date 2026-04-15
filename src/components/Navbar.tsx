@@ -45,10 +45,10 @@ const Navbar = ({ showHomeLogo = false }: NavbarProps) => {
               <a
                 href="/"
                 onClick={handleLogoClick}
-                className="text-sm md:text-base font-medium tracking-tight transition-opacity hover:opacity-80"
+                className="text-base md:text-lg font-medium tracking-tight transition-opacity hover:opacity-80"
                 style={{ color: "#E1E0CC" }}
               >
-                Kyro
+                Kyron
               </a>
             </li>
           )}
@@ -57,7 +57,7 @@ const Navbar = ({ showHomeLogo = false }: NavbarProps) => {
               <a
                 href={item.path}
                 onClick={(e) => handleNavClick(e, item)}
-                className="text-[9px] sm:text-[10px] md:text-xs whitespace-nowrap transition-colors"
+                className="text-[10px] sm:text-xs md:text-sm whitespace-nowrap transition-colors"
                 style={{ color: "rgba(225, 224, 204, 0.8)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#E1E0CC")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(225, 224, 204, 0.8)")}

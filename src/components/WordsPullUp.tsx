@@ -5,9 +5,17 @@ interface WordsPullUpProps {
   text: string;
   className?: string;
   showAsterisk?: boolean;
+  stagger?: number;
+  duration?: number;
 }
 
-const WordsPullUp = ({ text, className = "", showAsterisk = false }: WordsPullUpProps) => {
+const WordsPullUp = ({
+  text,
+  className = "",
+  showAsterisk = false,
+  stagger = 0.08,
+  duration = 0.8,
+}: WordsPullUpProps) => {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
 
@@ -22,8 +30,8 @@ const WordsPullUp = ({ text, className = "", showAsterisk = false }: WordsPullUp
           initial={{ y: 20, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : {}}
           transition={{
-            delay: i * 0.08,
-            duration: 0.8,
+            delay: i * stagger,
+            duration,
             ease: [0.16, 1, 0.3, 1],
           }}
         >
