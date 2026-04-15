@@ -15,7 +15,7 @@ const AboutSection = () => {
   const chars = aboutText.split("");
 
   return (
-    <section className="bg-black py-24 md:py-40 px-4 md:px-8">
+    <section id="about" className="bg-black py-24 md:py-40 px-4 md:px-8">
       <div className="w-full max-w-7xl mx-auto bg-[#101010] rounded-2xl md:rounded-3xl p-10 md:p-20 lg:p-24 text-center">
         <span className="text-primary text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-8 inline-block">Visual arts</span>
 
