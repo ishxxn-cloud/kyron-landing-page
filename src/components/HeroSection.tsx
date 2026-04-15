@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import WordsPullUp from "./WordsPullUp";
 
-const navItems = ["Our story", "Projects", "Subsciption", "Hire Me"];
+const navItems = ["About Me", "Projects", "Subsciption", "Hire Me"];
 
 const HeroSection = () => {
   return (
