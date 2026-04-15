@@ -32,7 +32,7 @@ const HeroSection = () => {
                 <li key={item}>
                   <a
                     href="#"
-                    className="text-[10px] sm:text-xs md:text-sm whitespace-nowrap transition-colors"
+                    className="text-[9px] sm:text-[10px] md:text-xs whitespace-nowrap transition-colors"
                     style={{ color: "rgba(225, 224, 204, 0.8)" }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = "#E1E0CC")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(225, 224, 204, 0.8)")}
