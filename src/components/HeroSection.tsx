@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import WordsPullUp from "./WordsPullUp";
-
-const navItems = ["About Me", "Projects", "Subsciption", "Hire Me"];
+import Navbar from "./Navbar";
 
 const HeroSection = () => {
   return (
@@ -25,25 +24,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none" />
 
         {/* Navbar */}
-        <div className="fixed top-0 left-1/2 -translate-x-1/2 z-50">
-          <nav className="bg-black rounded-b-2xl md:rounded-b-3xl px-4 py-2 md:px-8">
-            <ul className="flex items-center gap-3 sm:gap-6 md:gap-12 lg:gap-14">
-              {navItems.map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
-                    className="text-[9px] sm:text-[10px] md:text-xs whitespace-nowrap transition-colors"
-                    style={{ color: "rgba(225, 224, 204, 0.8)" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "#E1E0CC")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(225, 224, 204, 0.8)")}
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+        <Navbar />
 
         {/* Hero content */}
         <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 lg:p-12">
