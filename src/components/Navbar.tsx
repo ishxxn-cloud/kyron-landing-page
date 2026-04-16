@@ -43,6 +43,11 @@ const Navbar = ({ showHomeLogo = false }: NavbarProps) => {
   const location = useLocation();
   const linkClassName = "text-[11px] sm:text-sm md:text-base whitespace-nowrap transition-colors";
 
+  const isActive = (path: string) => {
+    if (path === "/#about") return location.pathname === "/";
+    return location.pathname === path;
+  };
+
   const handleNavClick = (e: React.MouseEvent, item: { label: string; path: string }) => {
     e.preventDefault();
     if (item.path === "/#about") {
@@ -86,9 +91,11 @@ const Navbar = ({ showHomeLogo = false }: NavbarProps) => {
                 href={item.path}
                 onClick={(e) => handleNavClick(e, item)}
                 className={linkClassName}
-                style={{ color: "rgba(225, 224, 204, 0.8)" }}
+                style={{ color: isActive(item.path) ? "#E1E0CC" : "rgba(225, 224, 204, 0.8)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#E1E0CC")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(225, 224, 204, 0.8)")}
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = isActive(item.path) ? "#E1E0CC" : "rgba(225, 224, 204, 0.8)")
+                }
               >
                 {item.label}
               </a>

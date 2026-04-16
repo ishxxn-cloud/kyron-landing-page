@@ -1,53 +1,63 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, Compass, LayoutTemplate, Layers3 } from "lucide-react";
 import WordsPullUpMultiStyle from "./WordsPullUpMultiStyle";
 
 const cardAnim = (i: number) => ({
-  initial: { scale: 0.95, opacity: 0 },
+  initial: { scale: 0.95, opacity: 0, y: 0 },
   variants: {
     visible: { scale: 1, opacity: 1 },
   },
-  transition: { delay: i * 0.15, duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+  transition: { delay: i * 0.2, duration: 1.15, ease: [0.22, 1, 0.36, 1] as const },
 });
 
 interface FeatureCardProps {
   index: number;
   number: string;
   title: string;
-  icon: string;
+  Icon: typeof Compass;
   items: string[];
   inView: boolean;
 }
 
-const FeatureCard = ({ index, number, title, icon, items, inView }: FeatureCardProps) => {
+const FeatureCard = ({ index, number, title, Icon, items, inView }: FeatureCardProps) => {
   const anim = cardAnim(index);
   return (
     <motion.div
-      className="bg-[#212121] rounded-2xl p-4 sm:p-5 flex flex-col justify-between h-full"
+      className="relative rounded-2xl p-5 sm:p-6 flex flex-col justify-between w-full max-w-[420px] min-h-[320px] bg-[#1d1d1d]/70 border border-white/10 backdrop-blur-md shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_20px_60px_rgba(0,0,0,0.55)]"
       initial={anim.initial}
-      animate={inView ? "visible" : undefined}
-      variants={anim.variants}
-      transition={anim.transition}
+      animate={
+        inView
+          ? { ...anim.variants.visible, y: [0, -10, 0] }
+          : anim.initial
+      }
+      transition={{
+        ...anim.transition,
+        y: { duration: 5.6, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 + 0.35 },
+      }}
     >
+      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[radial-gradient(600px_circle_at_30%_20%,rgba(255,255,255,0.08),transparent_60%)]" />
       <div>
-        <img src={icon} alt="" className="w-10 h-10 sm:w-12 sm:h-12 rounded mb-4" />
-        <div className="flex items-baseline gap-2 mb-4">
-          <h3 className="text-sm sm:text-base font-medium" style={{ color: "#E1E0CC" }}>{title}</h3>
-          <span className="text-gray-500 text-xs">({number})</span>
+        <div className="relative mb-5 inline-flex items-center gap-3">
+          <div className="grid place-items-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/5 border border-white/10">
+            <Icon className="w-5 h-5 text-primary" />
+          </div>
+          <span className="text-gray-500 text-xs sm:text-sm">({number})</span>
         </div>
-        <ul className="space-y-2">
+        <div className="flex items-baseline gap-2 mb-4">
+          <h3 className="text-base sm:text-lg font-medium tracking-tight" style={{ color: "#E1E0CC" }}>
+            {title}
+          </h3>
+        </div>
+        <ul className="space-y-2.5">
           {items.map((item, i) => (
-            <li key={i} className="flex items-start gap-2 text-gray-400 text-xs sm:text-sm">
-              <Check className="w-3.5 h-3.5 mt-0.5 text-primary shrink-0" />
+            <li key={i} className="flex items-start gap-2.5 text-gray-400 text-sm sm:text-base leading-snug">
+              <Check className="w-4 h-4 mt-0.5 text-primary shrink-0" />
               <span>{item}</span>
             </li>
           ))}
         </ul>
       </div>
-      <a href="#" className="inline-flex items-center gap-1 text-primary text-xs mt-4 hover:opacity-80 transition-opacity">
-        Learn more <ArrowRight className="w-3 h-3 -rotate-45" />
-      </a>
     </motion.div>
   );
 };
@@ -55,21 +65,21 @@ const FeatureCard = ({ index, number, title, icon, items, inView }: FeatureCardP
 const features = [
   {
     number: "01",
-    title: "Project Storyboard.",
-    icon: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171918_4a5edc79-d78f-4637-ac8b-53c43c220606.png&w=1280&q=85",
-    items: ["Visual timeline creation", "Scene-by-scene breakdown", "Collaborative annotations", "Export to PDF & video"],
+    title: "Discovery & Strategy.",
+    Icon: Compass,
+    items: ["Business goals & positioning", "Audience + competitor research", "Sitemap & conversion funnel", "Content plan & messaging"],
   },
   {
     number: "02",
-    title: "Smart Critiques.",
-    icon: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171741_ed9845ab-f5b2-4018-8ce7-07cc01823522.png&w=1280&q=85",
-    items: ["AI-powered visual analysis", "Creative direction notes", "Tool & plugin integrations"],
+    title: "UX Wireframes.",
+    Icon: LayoutTemplate,
+    items: ["User flows & page hierarchy", "Fast iteration on layouts", "Mobile-first structure", "Clear CTAs & conversion paths"],
   },
   {
     number: "03",
-    title: "Immersion Capsule.",
-    icon: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171809_f56666dc-c099-4778-ad82-9ad4f209567b.png&w=1280&q=85",
-    items: ["Notification silencing", "Ambient soundscapes", "Schedule syncing"],
+    title: "Design System & Build.",
+    Icon: Layers3,
+    items: ["Brand-aligned UI components", "Responsive design across breakpoints", "Performance + SEO foundations", "Launch-ready handoff & support"],
   },
 ];
 
@@ -85,14 +95,17 @@ const FeaturesSection = () => {
       <div className="relative max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12 md:mb-16">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.05] tracking-tight">
             <WordsPullUpMultiStyle
               segments={[
                 { text: "Studio-grade workflows for visionary creators.", className: "" },
               ]}
             />
           </h2>
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal mt-1" style={{ color: "#E1E0CC" }}>
+          <h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.05] tracking-tight mt-2"
+            style={{ color: "#E1E0CC" }}
+          >
             <WordsPullUpMultiStyle
               segments={[
                 { text: "Built for pure vision. Powered by art.", className: "text-gray-500" },
@@ -102,29 +115,9 @@ const FeaturesSection = () => {
         </div>
 
         {/* Cards */}
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-2 md:gap-1 lg:h-[480px]">
-          {/* Video card */}
-          <motion.div
-            className="relative rounded-2xl overflow-hidden h-[300px] lg:h-full"
-            {...cardAnim(0)}
-            animate={isInView ? "visible" : undefined}
-          >
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_133058_0504132a-0cf3-4450-a370-8ea3b05c95d4.mp4"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            <p className="absolute bottom-4 left-4 text-sm font-medium" style={{ color: "#E1E0CC" }}>
-              Your creative canvas.
-            </p>
-          </motion.div>
-
+        <div ref={ref} className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-5">
           {features.map((f, i) => (
-            <FeatureCard key={f.number} index={i + 1} inView={isInView} {...f} />
+            <FeatureCard key={f.number} index={i} inView={isInView} {...f} />
           ))}
         </div>
       </div>

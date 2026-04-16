@@ -1,18 +1,49 @@
 import { ArrowRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const footerLinks = [
-  { heading: "Navigate", items: ["Our story", "Projects", "Subscription", "Hire Me"] },
+  { heading: "Navigate", items: ["About Me", "Projects", "Subscription", "Hire Me"] },
   { heading: "Social", items: ["Instagram"] },
   { heading: "Contact", items: ["hello@kyron.studio", "General inquiries"] },
 ];
 
 const Footer = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogoClick = () => {
     navigate("/");
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleFooterNav = (e: React.MouseEvent, item: string) => {
+    e.preventDefault();
+
+    if (item === "About Me") {
+      if (location.pathname === "/") {
+        const el = document.getElementById("about");
+        if (el) {
+          const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+          el.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth", block: "center" });
+        }
+      } else {
+        navigate("/?scrollTo=about");
+        window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+      }
+      return;
+    }
+
+    const routes: Record<string, string> = {
+      Projects: "/projects",
+      Subscription: "/subscription",
+      "Hire Me": "/hire-me",
+    };
+
+    const path = routes[item];
+    if (path) {
+      navigate(path);
+      window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    }
   };
 
   return (
@@ -52,6 +83,7 @@ const Footer = () => {
                       href="#"
                       className="text-sm transition-colors"
                       style={{ color: "rgba(225, 224, 204, 0.7)" }}
+                      onClick={(e) => group.heading === "Navigate" && handleFooterNav(e, item)}
                       onMouseEnter={(e) => (e.currentTarget.style.color = "#E1E0CC")}
                       onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(225, 224, 204, 0.7)")}
                     >
