@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 
 const enterUp = {
@@ -188,18 +188,6 @@ const HireMe = () => {
           </p>
         </motion.div>
 
-        {/* Bottom CTA */}
-        <motion.div variants={enterUp} transition={{ duration: 1.55, ease: [0.22, 1, 0.36, 1] }} className="mt-10">
-          <a
-            href="mailto:kyron.designagency@gmail.com?subject=Get%20in%20touch"
-            className="group inline-flex items-center gap-1 hover:gap-3 bg-primary rounded-full pl-5 pr-2 py-1 transition-all w-fit"
-          >
-            <span className="text-primary-foreground font-medium text-sm sm:text-base pr-1">Get in touch</span>
-            <span className="bg-background rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-transform group-hover:scale-110">
-              <ArrowRight className="w-4 h-4 text-foreground" />
-            </span>
-          </a>
-        </motion.div>
       </motion.div>
     </section>
       <Footer />

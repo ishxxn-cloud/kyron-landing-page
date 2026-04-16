@@ -31,9 +31,9 @@ const HeroSection = () => {
 
         {/* Hero content */}
         <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 lg:p-12">
-          <div className="grid grid-cols-12 gap-4 items-end">
+          <div className="grid grid-cols-12 gap-4 gap-y-6 sm:gap-y-4 items-end">
             {/* Heading */}
-            <div className="col-span-12 lg:col-span-8">
+            <div className="col-span-12 lg:col-span-8 -translate-y-2 sm:translate-y-0">
               <h1
                 className="text-[26vw] sm:text-[24vw] md:text-[22vw] lg:text-[20vw] xl:text-[19vw] 2xl:text-[20vw] font-medium leading-[0.85] tracking-[-0.07em]"
                 style={{ color: "#E1E0CC" }}
