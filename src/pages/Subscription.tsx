@@ -57,7 +57,7 @@ const Subscription = () => (
                 <div>
                   <p className="text-xs uppercase tracking-widest text-gray-500">Starter</p>
                   <h2 className="mt-2 text-2xl md:text-3xl font-medium tracking-tight" style={{ color: "#E1E0CC" }}>
-                    ₹12,000<span className="text-sm md:text-base text-gray-500">/month</span>
+                    ₹10,000<span className="text-sm md:text-base text-gray-500">/month</span>
                   </h2>
                 </div>
               </div>
