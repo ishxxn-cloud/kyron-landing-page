@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Check } from "lucide-react";
@@ -16,12 +17,17 @@ const stagger = {
   },
 };
 
-const Subscription = () => (
-  <main className="bg-black min-h-screen">
-    <Navbar showHomeLogo />
-    <section className="relative pt-24 pb-20 px-4 md:px-8">
-      {/* Noise */}
-      <div className="absolute inset-0 bg-noise opacity-[0.15] pointer-events-none" />
+const Subscription = () => {
+  useEffect(() => {
+    document.title = "Subscription";
+  }, []);
+
+  return (
+    <main className="bg-black min-h-screen">
+      <Navbar showHomeLogo />
+      <section className="relative pt-24 pb-20 px-4 md:px-8">
+        {/* Noise */}
+        <div className="absolute inset-0 bg-noise opacity-[0.15] pointer-events-none" />
 
       <motion.div
         className="relative max-w-7xl mx-auto"
@@ -284,7 +290,8 @@ const Subscription = () => (
       </motion.div>
     </section>
     <Footer />
-  </main>
-);
+    </main>
+  );
+};
 
 export default Subscription;

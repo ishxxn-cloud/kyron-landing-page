@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ArrowRight, Check } from "lucide-react";
@@ -15,11 +16,16 @@ const stagger = {
   },
 };
 
-const HireMe = () => (
-  <main className="bg-background min-h-screen">
-    <Navbar showHomeLogo />
-    <section className="relative pt-24 pb-20 px-4 md:px-8">
-      <div className="absolute inset-0 bg-noise opacity-[0.15] pointer-events-none" />
+const HireMe = () => {
+  useEffect(() => {
+    document.title = "Hire Me";
+  }, []);
+
+  return (
+    <main className="bg-background min-h-screen">
+      <Navbar showHomeLogo />
+      <section className="relative pt-24 pb-20 px-4 md:px-8">
+        <div className="absolute inset-0 bg-noise opacity-[0.15] pointer-events-none" />
 
       <motion.div
         className="relative max-w-7xl mx-auto"
@@ -183,11 +189,9 @@ const HireMe = () => (
         </motion.div>
 
         {/* Bottom CTA */}
-          <motion.div variants={enterUp} transition={{ duration: 1.55, ease: [0.22, 1, 0.36, 1] }} className="mt-10">
+        <motion.div variants={enterUp} transition={{ duration: 1.55, ease: [0.22, 1, 0.36, 1] }} className="mt-10">
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdXMSum9__Ul5NIQb-eZ2sz2kmlNH5bPPPMefdDvQguwGP1gA/viewform?usp=sharing&ouid=103536311600437010503"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:kyron.designagency@gmail.com?subject=Get%20in%20touch"
             className="group inline-flex items-center gap-1 hover:gap-3 bg-primary rounded-full pl-5 pr-2 py-1 transition-all w-fit"
           >
             <span className="text-primary-foreground font-medium text-sm sm:text-base pr-1">Get in touch</span>
@@ -198,8 +202,9 @@ const HireMe = () => (
         </motion.div>
       </motion.div>
     </section>
-    <Footer />
-  </main>
-);
+      <Footer />
+    </main>
+  );
+};
 
 export default HireMe;

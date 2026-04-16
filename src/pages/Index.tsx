@@ -36,6 +36,10 @@ const Index = () => {
   const location = useLocation();
 
   useEffect(() => {
+    document.title = "Kyron Design Agency";
+  }, []);
+
+  useEffect(() => {
     const params = new URLSearchParams(location.search);
     const scrollTo = params.get("scrollTo");
     if (scrollTo) {

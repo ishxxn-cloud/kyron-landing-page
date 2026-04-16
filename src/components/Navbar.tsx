@@ -36,7 +36,7 @@ function scrollElementToViewportCenter(el: HTMLElement, durationMs = 1100) {
 const navItems = [
   { label: "About Me", path: "/#about" },
   { label: "Projects", path: "/projects" },
-  { label: "Subsciption", path: "/subscription" },
+  { label: "Subscription", path: "/subscription" },
   { label: "Hire Me", path: "/hire-me" },
 ];
 
@@ -45,7 +45,8 @@ const Navbar = ({ showHomeLogo = false }: NavbarProps) => {
   const location = useLocation();
   const prefersReducedMotion = useReducedMotion();
   const [aboutInView, setAboutInView] = useState(false);
-  const linkClassName = "text-[11px] sm:text-sm md:text-base whitespace-nowrap transition-colors";
+  const linkClassName =
+    "text-[13px] sm:text-sm md:text-base whitespace-normal sm:whitespace-nowrap break-words leading-none transition-colors";
 
   useEffect(() => {
     if (location.pathname !== "/") {
@@ -90,8 +91,8 @@ const Navbar = ({ showHomeLogo = false }: NavbarProps) => {
 
   return (
     <div className="fixed top-0 left-1/2 -translate-x-1/2 z-50">
-      <nav className="bg-black rounded-b-2xl md:rounded-b-3xl px-4 py-2 md:px-8">
-        <ul className="flex items-center gap-3 sm:gap-6 md:gap-12 lg:gap-14">
+      <nav className="bg-black rounded-b-2xl md:rounded-b-3xl px-3 py-2 md:px-8">
+        <ul className="flex flex-wrap items-center gap-2 sm:flex-nowrap sm:gap-6 md:gap-12 lg:gap-14">
           {showHomeLogo && (
             <motion.li
               initial={prefersReducedMotion ? false : { width: 0 }}
