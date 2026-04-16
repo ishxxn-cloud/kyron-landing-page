@@ -78,7 +78,7 @@ const Navbar = ({ showHomeLogo = false }: NavbarProps) => {
           {showHomeLogo && (
             <motion.li
               initial={prefersReducedMotion ? false : { width: 0 }}
-              animate={{ width: prefersReducedMotion ? "auto" : 96 }}
+              animate={{ width: "auto" }}
               transition={
                 prefersReducedMotion
                   ? undefined
