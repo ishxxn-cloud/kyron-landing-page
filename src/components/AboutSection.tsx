@@ -26,7 +26,7 @@ const AboutSection = () => {
           <WordsPullUpMultiStyle
             containerClassName="justify-center gap-y-4"
             segments={[
-              { text: "I am Kyro Sen,", className: "font-normal" },
+              { text: "I am Ishaan,", className: "font-normal" },
               { text: "a self-taught designer.", className: "italic font-serif" },
               { text: "I specialise in web design, user experience & front end development, shaping digital spaces that are both functional & visually compelling. With a focus on clarity and detail, I craft websites that connect, engage, and elevate brands.", className: "font-normal" },
             ]}
