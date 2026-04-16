@@ -75,7 +75,9 @@ const HireMe = () => (
               </ul>
 
               <a
-                href="#"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdXMSum9__Ul5NIQb-eZ2sz2kmlNH5bPPPMefdDvQguwGP1gA/viewform?usp=sharing&ouid=103536311600437010503"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-7 group inline-flex items-center justify-center w-full bg-white/5 hover:bg-white/10 border border-white/10 rounded-full px-5 py-2.5 transition-colors"
               >
                 <span className="text-sm md:text-base font-medium text-foreground">
@@ -121,7 +123,9 @@ const HireMe = () => (
               </ul>
 
               <a
-                href="#"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdXMSum9__Ul5NIQb-eZ2sz2kmlNH5bPPPMefdDvQguwGP1gA/viewform?usp=sharing&ouid=103536311600437010503"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-7 group inline-flex items-center justify-center w-full bg-primary rounded-full px-5 py-2.5 transition-opacity hover:opacity-90"
               >
                 <span className="text-sm md:text-base font-medium text-primary-foreground">Request a full website</span>
@@ -179,9 +183,11 @@ const HireMe = () => (
         </motion.div>
 
         {/* Bottom CTA */}
-        <motion.div variants={enterUp} transition={{ duration: 1.55, ease: [0.22, 1, 0.36, 1] }} className="mt-10">
+          <motion.div variants={enterUp} transition={{ duration: 1.55, ease: [0.22, 1, 0.36, 1] }} className="mt-10">
           <a
-            href="#"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdXMSum9__Ul5NIQb-eZ2sz2kmlNH5bPPPMefdDvQguwGP1gA/viewform?usp=sharing&ouid=103536311600437010503"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-1 hover:gap-3 bg-primary rounded-full pl-5 pr-2 py-1 transition-all w-fit"
           >
             <span className="text-primary-foreground font-medium text-sm sm:text-base pr-1">Get in touch</span>

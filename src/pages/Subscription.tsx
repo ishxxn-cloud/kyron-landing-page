@@ -78,7 +78,9 @@ const Subscription = () => (
               </ul>
 
               <a
-                href="#"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdXMSum9__Ul5NIQb-eZ2sz2kmlNH5bPPPMefdDvQguwGP1gA/viewform?usp=sharing&ouid=103536311600437010503"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-7 inline-flex items-center justify-center w-full bg-white/5 hover:bg-white/10 border border-white/10 rounded-full px-5 py-2.5 transition-colors"
               >
                 <span className="text-sm md:text-base font-medium" style={{ color: "#E1E0CC" }}>
@@ -125,7 +127,9 @@ const Subscription = () => (
               </ul>
 
               <a
-                href="#"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdXMSum9__Ul5NIQb-eZ2sz2kmlNH5bPPPMefdDvQguwGP1gA/viewform?usp=sharing&ouid=103536311600437010503"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-7 group inline-flex items-center justify-center w-full bg-primary rounded-full px-5 py-2.5 transition-opacity hover:opacity-90"
               >
                 <span className="text-sm md:text-base font-medium text-primary-foreground">Get Growth</span>
@@ -167,7 +171,9 @@ const Subscription = () => (
               </ul>
 
               <a
-                href="#"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdXMSum9__Ul5NIQb-eZ2sz2kmlNH5bPPPMefdDvQguwGP1gA/viewform?usp=sharing&ouid=103536311600437010503"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-7 inline-flex items-center justify-center w-full bg-white/5 hover:bg-white/10 border border-white/10 rounded-full px-5 py-2.5 transition-colors"
               >
                 <span className="text-sm md:text-base font-medium" style={{ color: "#E1E0CC" }}>
