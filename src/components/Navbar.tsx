@@ -1,4 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
 
 interface NavbarProps {
   showHomeLogo?: boolean;
@@ -41,6 +42,7 @@ const navItems = [
 const Navbar = ({ showHomeLogo = false }: NavbarProps) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const prefersReducedMotion = useReducedMotion();
   const linkClassName = "text-[11px] sm:text-sm md:text-base whitespace-nowrap transition-colors";
 
   const isActive = (path: string) => {
@@ -74,16 +76,28 @@ const Navbar = ({ showHomeLogo = false }: NavbarProps) => {
       <nav className="bg-black rounded-b-2xl md:rounded-b-3xl px-4 py-2 md:px-8">
         <ul className="flex items-center gap-3 sm:gap-6 md:gap-12 lg:gap-14">
           {showHomeLogo && (
-            <li>
-              <a
+            <motion.li
+              initial={prefersReducedMotion ? false : { width: 0 }}
+              animate={{ width: prefersReducedMotion ? "auto" : 96 }}
+              transition={
+                prefersReducedMotion
+                  ? undefined
+                  : { delay: 0.12, type: "spring", stiffness: 140, damping: 22, mass: 0.9 }
+              }
+              style={{ overflow: "hidden", whiteSpace: "nowrap" }}
+            >
+              <motion.a
                 href="/"
                 onClick={handleLogoClick}
                 className={`${linkClassName} font-medium tracking-tight transition-opacity hover:opacity-80`}
                 style={{ color: "#E1E0CC" }}
+                initial={prefersReducedMotion ? false : { x: -14, opacity: 0, filter: "blur(6px)" }}
+                animate={{ x: 0, opacity: 1, filter: "blur(0px)" }}
+                transition={prefersReducedMotion ? undefined : { delay: 0.22, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
               >
                 Kyron
-              </a>
-            </li>
+              </motion.a>
+            </motion.li>
           )}
           {navItems.map((item) => (
             <li key={item.label}>

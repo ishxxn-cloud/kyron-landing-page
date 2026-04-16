@@ -2,8 +2,11 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import WordsPullUp from "./WordsPullUp";
 import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="h-screen p-4 md:p-6">
       <div className="relative w-full h-full rounded-2xl md:rounded-[2rem] overflow-hidden">
@@ -52,7 +55,12 @@ const HeroSection = () => {
               </motion.p>
 
               <motion.a
-                href="#"
+                href="/hire-me"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/hire-me");
+                  window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+                }}
                 className="group inline-flex items-center gap-1 hover:gap-3 bg-primary rounded-full pl-5 pr-2 py-1 transition-all w-fit"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}

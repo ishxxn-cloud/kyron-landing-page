@@ -1,10 +1,13 @@
 import { ArrowRight } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+const CONTACT_EMAIL = "kyron.designagency@gmail.com";
+const MAILTO_INQUIRY = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("inquiry")}`;
+
 const footerLinks = [
   { heading: "Navigate", items: ["About Me", "Projects", "Subscription", "Hire Me"] },
   { heading: "Social", items: ["Instagram"] },
-  { heading: "Contact", items: ["hello@kyron.studio", "General inquiries"] },
+  { heading: "Contact", items: [CONTACT_EMAIL] },
 ];
 
 const Footer = () => {
@@ -58,7 +61,7 @@ const Footer = () => {
             Let's create<br />something together.
           </h2>
           <a
-            href="#"
+            href={MAILTO_INQUIRY}
             className="group inline-flex items-center gap-1 hover:gap-3 bg-primary rounded-full pl-5 pr-2 py-1 transition-all w-fit shrink-0"
           >
             <span className="text-primary-foreground font-medium text-sm sm:text-base pr-1">Get in touch</span>
@@ -80,7 +83,11 @@ const Footer = () => {
                 {group.items.map((item) => (
                   <li key={item}>
                     <a
-                      href="#"
+                      href={
+                        group.heading === "Contact" && item.includes("@")
+                          ? `mailto:${item}?subject=${encodeURIComponent("inquiry")}`
+                          : "#"
+                      }
                       className="text-sm transition-colors"
                       style={{ color: "rgba(225, 224, 204, 0.7)" }}
                       onClick={(e) => group.heading === "Navigate" && handleFooterNav(e, item)}
