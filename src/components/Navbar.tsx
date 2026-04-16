@@ -1,5 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 interface NavbarProps {
   showHomeLogo?: boolean;
@@ -43,10 +44,26 @@ const Navbar = ({ showHomeLogo = false }: NavbarProps) => {
   const navigate = useNavigate();
   const location = useLocation();
   const prefersReducedMotion = useReducedMotion();
+  const [aboutInView, setAboutInView] = useState(false);
   const linkClassName = "text-[11px] sm:text-sm md:text-base whitespace-nowrap transition-colors";
 
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setAboutInView(false);
+      return;
+    }
+    const el = document.getElementById("about");
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setAboutInView(entry.isIntersecting),
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [location.pathname]);
+
   const isActive = (path: string) => {
-    if (path === "/#about") return location.pathname === "/";
+    if (path === "/#about") return aboutInView;
     return location.pathname === path;
   };
 
