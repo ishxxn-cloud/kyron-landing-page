@@ -100,7 +100,7 @@ const Subscription = () => (
                 <div>
                   <p className="text-xs uppercase tracking-widest text-gray-500">Growth</p>
                   <h2 className="mt-2 text-2xl md:text-3xl font-medium tracking-tight" style={{ color: "#E1E0CC" }}>
-                    ₹25,000<span className="text-sm md:text-base text-gray-500">/month</span>
+                    ₹20,000<span className="text-sm md:text-base text-gray-500">/month</span>
                   </h2>
                 </div>
                 <span className="inline-flex items-center rounded-full bg-primary/15 border border-primary/30 px-3 py-1 text-[11px] tracking-wide text-primary">
@@ -145,7 +145,7 @@ const Subscription = () => (
                 <div>
                   <p className="text-xs uppercase tracking-widest text-gray-500">Pro</p>
                   <h2 className="mt-2 text-2xl md:text-3xl font-medium tracking-tight" style={{ color: "#E1E0CC" }}>
-                    ₹45,000<span className="text-sm md:text-base text-gray-500">/month</span>
+                    ₹30,000<span className="text-sm md:text-base text-gray-500">/month</span>
                   </h2>
                 </div>
               </div>
