@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import WordsPullUp from "@/components/WordsPullUp";
 import axtremeImg from "@/assets/project-axtremefit.png";
 import careClinicImg from "@/assets/project-careclinic.png";
+import kkIndustryImg from "@/assets/project-kkindustry.png";
 
 interface Project {
   index: string;
@@ -43,6 +44,18 @@ const projects: Project[] = [
     tags: ["Web Design", "UX", "Front-end"],
     image: careClinicImg,
     accent: "#FFB088",
+  },
+  {
+    index: "03",
+    title: "K.K. Industry",
+    category: "Manufacturing · Industry Website",
+    year: "2025",
+    url: "https://kk-industries.vercel.app/",
+    description:
+      "A robust, professional platform for an industrial manufacturer. Clean layouts, structural typography, and bold accents to reflect engineering precision and reliability.",
+    tags: ["Web Design", "Development", "UI/UX"],
+    image: kkIndustryImg,
+    accent: "#0055FF",
   },
 ];
 
