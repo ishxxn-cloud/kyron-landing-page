@@ -7,6 +7,7 @@ import WordsPullUp from "@/components/WordsPullUp";
 import axtremeImg from "@/assets/project-axtremefit.png";
 import careClinicImg from "@/assets/project-careclinic.png";
 import meenakshiImg from "@/assets/project-meenakshi.png";
+import skinverseImg from "@/assets/project-skinverse.png";
 
 interface Project {
   index: string;
@@ -50,12 +51,24 @@ const projects: Project[] = [
     title: "Dr Meenakshi Ahuja",
     category: "Healthcare · Specialist Website",
     year: "2025",
-    url: "https://drmeenakshi.vercel.app",
+    url: "https://meenakshiahuja.com/",
     description:
       "A professional and welcoming digital space for a leading healthcare specialist. Clean layouts, calming aesthetics, and patient-focused design to build trust and accessibility.",
     tags: ["Web Design", "Development", "UI/UX"],
     image: meenakshiImg,
     accent: "#99C1FF",
+  },
+  {
+    index: "04",
+    title: "Skin Verse",
+    category: "Healthcare · Dermatology Clinic",
+    year: "2025",
+    url: "https://drshreyagupta.vercel.app/",
+    description:
+      "A premium digital experience for a modern dermatology and aesthetic clinic. Clean, minimalist design with soothing aesthetics to convey trust, care, and luxury.",
+    tags: ["Web Design", "Development", "UI/UX"],
+    image: skinverseImg,
+    accent: "#F3E8E0",
   },
 ];
 
